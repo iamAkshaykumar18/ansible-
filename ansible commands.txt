@@ -1,0 +1,37 @@
+ansible - push method
+-agent less 
+-what we create is pass less authentication 
+###### how to do password less authentication #####
+step 1- " create a ssh-keygen
+then use ansible server publickey ,copy that publickey 
+step 2- "same create a publickey in access server 
+step 3 - it shows authentication_keys
+open it and paste the ansible server public key on that and save and exit
+step 4 - next do ssh "private key of access server"
+then enter
+step 5 - done with passless authentication
+###############################################
+########inventory####################
+inventory
+is used to store the private keys of accessing servers...
+###########################################
+then test with ansible ashoc commands 
+#############################################################
+used : for creating file :
+ansible -i inventory all -m file -a "touch example"
+############ to create a file using ansible adhoc "
+################# TO KNOW HOW MANY CPU S IN "ACCESS SERVER" ###########
+WE USE :ansible -i inventory all -m file -a "nproc"
+#############################################################
+if we want know disk usage that things: we use:
+ansible -i inventory all -m file -a "df"
+################ for any other commands refer to "ansible modules###############
+for example syn: if want to sent any to a certain group only : called """GROUPING"
+step 1:open inventory 
+Change it [dbserver]
+172.23.133
+[webserver]
+1899300
+:::::::::: if u want to send command to dbservers " for example if want to check dick usage only dbserver:
+ansible -i inventory dbserver -m file -a "df"
+###############################################################
